@@ -1,4 +1,4 @@
-const TIMER = 4000;
+const TIMER = 1000;
 const doc = document;
 
 function classAdder(balls) {
@@ -18,21 +18,28 @@ function classRemover(balls) {
     { name: "pink", value: doc.querySelectorAll('.pink') },
     { name: "blue", value: doc.querySelectorAll('.blue') }
   ];
-  function setRepeatedTimer(id) {
-    
-    const timerId = setInterval(() => {
-      console.log(id);
+  const len = colors.length;
+  function eachCallback (id) {
+    setTimeout(function () {
+      if (id > 0) {
+        if (id === len) {
+          console.log('t');
+          // start();
+        }
+        else {
+          classRemover(colors[id - 1]);
+          classAdder(colors[id])
+        }
+      }
+      else {
+        classRemover(colors[len - 1]);
+        classAdder(colors[id])
+      }
 
-      // classRemover(colors[id - 1]);
-      // classAdder(colors[id]);
-    }, TIMER);
-  }
-
-  function start() {
-    function timeoutCallback(__color, id) {
-      setTimeout(setRepeatedTimer.bind(this, id), id * TIMER)
-    } 
-    colors.forEach(timeoutCallback);
+    }, id * TIMER);
   };
+  function start() {
+    colors.forEach((_color, id) => eachCallback(id));
+  }
   start();
 })()
