@@ -1,100 +1,51 @@
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Happy New Year and Merry Christmas!</title>
-	<link rel="stylesheet" href="src/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Happy New Year and Merry Christmas!</title>
+  <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
-	<section class="wrapper">
-		<div class="star-container">
-			<div class="star"></div>
-		</div>
-		<div class="green-section">
-			<div class="ball x1y1 gold"></div>
-			<div class="ball x2y1 silver"></div>
-		</div>
-		<div class="green-section">
-			<div class="ball x1y2 red"></div>
-			<div class="ball x2y2 lime"></div>
-			<div class="ball x3y2 blue"></div>
-		</div>
-		<div class="green-section">
-			<div class="ball x1y3 silver"></div>
-			<div class="ball x2y3 pink"></div>
-			<div class="ball x3y3 red"></div>
-		</div>
-		<div class="green-section">
-			<div class="ball x1y4 lime"></div>
-			<div class="ball x2y4 gold"></div>
-			<div class="ball x3y4 pink"></div>
-			<div class="ball x4y4 blue"></div>
-		</div>
-		<div class="ground">
-            <div class="trunk"></div>
-            <div class="small-gift">
-                <div class="box-cover">
-                    <div class="label"></div>
-                </div>
-            </div>
-            <div class="big-gift">
-                <div class="box-cover">
-                    <div class="label"></div>
-                </div>
-            </div>
+  <section class="wrapper">
+    <div class="star-container">
+      <div class="star"></div>
+    </div>
+    <div class="green-section">
+      <div class="ball x1y1 gold"></div>
+      <div class="ball x2y1 silver"></div>
+    </div>
+    <div class="green-section">
+      <div class="ball x1y2 red"></div>
+      <div class="ball x2y2 lime"></div>
+      <div class="ball x3y2 blue"></div>
+    </div>
+    <div class="green-section">
+      <div class="ball x1y3 silver"></div>
+      <div class="ball x2y3 pink"></div>
+      <div class="ball x3y3 red"></div>
+    </div>
+    <div class="green-section">
+      <div class="ball x1y4 lime"></div>
+      <div class="ball x2y4 gold"></div>
+      <div class="ball x3y4 pink"></div>
+      <div class="ball x4y4 blue"></div>
+    </div>
+    <div class="ground">
+      <div class="trunk"></div>
+      <div class="small-gift">
+        <div class="box-cover">
+          <div class="label"></div>
         </div>
-	</section>
-	<script>
-		const doc = document;
-		const time = 4000;
-		const colors = [
-            {name: "gold", value: doc.querySelectorAll('.gold')},
-            {name: "silver", value: doc.querySelectorAll('.silver')},
-            {name: "red", value: doc.querySelectorAll('.red')},
-            {name: "lime", value: doc.querySelectorAll('.lime')},
-            {name: "pink", value: doc.querySelectorAll('.pink')},
-            {name: "blue", value: doc.querySelectorAll('.blue')}
-        ];
-
-		function classAdder (color) {
-            color.value.forEach(
-                function(item) {
-                    item.classList.add('show')
-                })
-		}
-
-        function classRemover (color) {
-            color.value.forEach(
-                function(item) {
-                    item.classList.remove('show')
-                });
-        }
-        function startShow() {
-            for(var i = 0, len = colors.length; i <= len; i++) {
-                (function(i) {
-                    setTimeout(function () {
-
-                        if (i > 0) {
-                            if (i == len) {
-                                startShow();
-                            }
-                            else {
-                                classRemover(colors[i - 1]);
-                                classAdder(colors[i])
-                            }
-                        }
-                       else {
-                            classRemover(colors[len - 1]);
-                            classAdder(colors[i])
-                        }
-
-                    }, i * time);
-                })(i);
-            }
-        }
-        startShow();
-	</script>
+      </div>
+      <div class="big-gift">
+        <div class="box-cover">
+          <div class="label"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="./src/animation.js"></script>
 </body>
 </html>

@@ -155,13 +155,14 @@ body {
   z-index: 11;
 }
 .ball::before {
-  position: relative;
-  top: -15px;
+  position: absolute;
+  top: -5px;
+  left: 7px;
   background-color: #a0a0a0;
   content: '';
   display: inline-block;
   height: 6px;
-  width: 5px;
+  width: 6px;
 }
 
 .gold {
