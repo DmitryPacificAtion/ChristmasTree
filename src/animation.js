@@ -27,7 +27,7 @@ const classAdder = ball => ball.classList.add('show');
   };
 
   function start() {
-    colors.forEach((_color, id) => setTimeout(infiniteTimer, (id) * TIMER, id));
+    colors.forEach((_color, id) => setTimeout(infiniteTimer, id * TIMER, id));
   }
   start();
 })();
