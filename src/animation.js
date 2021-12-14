@@ -1,15 +1,10 @@
 const TIMER = 1000;
 const doc = document;
 
-function classAdder(balls) {
-  balls.value.forEach(ball => ball.classList.add('show'));
-};
+const classRemover = ball => ball.classList.remove('show');
+const classAdder = ball => ball.classList.add('show');
 
-function classRemover(balls) {
-  balls.value.forEach(ball => ball.classList.remove('show'));
-};
-
-(function animayion() {
+(function() {
   const colors = [
     { name: "gold", value: doc.querySelectorAll('.gold') },
     { name: "silver", value: doc.querySelectorAll('.silver') },
@@ -19,27 +14,20 @@ function classRemover(balls) {
     { name: "blue", value: doc.querySelectorAll('.blue') }
   ];
   const len = colors.length;
-  function eachCallback (id) {
-    setTimeout(function () {
-      if (id > 0) {
-        if (id === len) {
-          console.log('t');
-          // start();
-        }
-        else {
-          classRemover(colors[id - 1]);
-          classAdder(colors[id])
-        }
-      }
-      else {
-        classRemover(colors[len - 1]);
-        classAdder(colors[id])
-      }
+  const infiniteTimeout = TIMER * len;
 
-    }, id * TIMER);
+  const garlandSwitch = (prevBalls, nextBalls) => {
+    prevBalls.forEach(classRemover);
+    nextBalls.forEach(classAdder);
   };
+
+  const infiniteTimer = (id) => {
+    const prevBalls = id > 0 ? colors[id - 1].value : colors[len - 1].value;
+    setInterval(garlandSwitch, infiniteTimeout, prevBalls, colors[id].value);
+  };
+
   function start() {
-    colors.forEach((_color, id) => eachCallback(id));
+    colors.forEach((_color, id) => setTimeout(infiniteTimer, (id) * TIMER, id));
   }
   start();
-})()
+})();
