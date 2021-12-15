@@ -12,69 +12,24 @@ body {
 
 .star-container {
   position: absolute;
-  left: calc(50% - 49px);
-  top: calc(-50% + 1px);
+  left: calc(50% - 54px);
+  top: -50%;
+  width: 106px;
+  height: 106px;
   z-index: 10;
 }
-.star-container:after {
-  content: '';
-  background: #ca9c11;
-  display: block;
-  position: relative;
+.stick {
+  fill: #ca9c11;
+  position: absolute;
   margin: 0 auto;
-  left: -1px;
-  top: -47px;
-  height: 35px;
+  x: 51;
+  y: 70px;
+  height: 36px;
   width: 6px;
   z-index: 30;
 }
 .star {
-  margin: 25px auto 50px;
-  position: relative;
-  display: block;
-  width: 0;
-  height: 0;
-  border-right: 50px solid transparent;
-  border-bottom: 35px solid #ca9c11;
-  border-left: 50px solid transparent;
-  -moz-transform: rotate(35deg);
-  -webkit-transform: rotate(35deg);
-  -ms-transform: rotate(35deg);
-  -o-transform: rotate(35deg);
-  transform: rotate(35deg);
-}
-.star:before {
-  border-bottom: 40px solid #ca9c11;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  position: absolute;
-  height: 0;
-  width: 0;
-  top: -22px;
-  left: -30px;
-  display: block;
-  content: '';
-  -webkit-transform: rotate(-35deg);
-  -moz-transform: rotate(-35deg);
-  -ms-transform: rotate(-35deg);
-  -o-transform: rotate(-35deg);
-}
-.star:after {
-  position: absolute;
-  display: block;
-  color: #ca9c11;
-  top: 3px;
-  left: -53px;
-  width: 0;
-  height: 0;
-  border-right: 50px solid transparent;
-  border-bottom: 35px solid #ca9c11;
-  border-left: 50px solid transparent;
-  -webkit-transform: rotate(-70deg);
-  -moz-transform: rotate(-70deg);
-  -ms-transform: rotate(-70deg);
-  -o-transform: rotate(-70deg);
-  content: '';
+  fill: #ca9c11;
 }
 
 .green-section {
